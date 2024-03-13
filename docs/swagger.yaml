@@ -1,0 +1,72 @@
+definitions:
+  workhandler.AssignWorkerDTO:
+    properties:
+      workId:
+        type: string
+      workerId:
+        type: string
+    type: object
+  workhandler.CreateWorkDTO:
+    properties:
+      eventType:
+        type: string
+      productId:
+        type: string
+    type: object
+  workhandler.WorkDTO:
+    properties:
+      eventType:
+        type: string
+      productId:
+        type: string
+      workId:
+        type: string
+    type: object
+info:
+  contact:
+    url: https://github.com/MrDweller/work-handler
+  description: This page shows the REST interfaces offered by the Work Handler.
+  title: Work Handler
+  version: "1.0"
+paths:
+  /assign-worker:
+    post:
+      description: Assign a worker a specified work task.
+      parameters:
+      - description: AssignWorkerDTO JSON
+        in: body
+        name: AssignWorkerDTO
+        required: true
+        schema:
+          $ref: '#/definitions/workhandler.AssignWorkerDTO'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/workhandler.WorkDTO'
+      summary: Assign a worker a specified work task.
+      tags:
+      - Worker
+  /work:
+    post:
+      description: Create a new work task
+      parameters:
+      - description: CreateWorkDTO JSON
+        in: body
+        name: CreateWorkDTO
+        required: true
+        schema:
+          $ref: '#/definitions/workhandler.CreateWorkDTO'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/workhandler.WorkDTO'
+      summary: Create a new work task
+      tags:
+      - Product
+swagger: "2.0"
