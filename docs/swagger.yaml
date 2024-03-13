@@ -49,7 +49,7 @@ paths:
       summary: Assign a worker a specified work task.
       tags:
       - Worker
-  /work:
+  /create-work:
     post:
       description: Create a new work task
       parameters:

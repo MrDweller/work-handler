@@ -77,7 +77,7 @@ func (w *WorkHandler) Run() error {
 func (w *WorkHandler) setupEnpoints(router *gin.Engine) error {
 	controller := Controller{service: w.Service}
 
-	router.POST("/work", controller.CreateWork)
+	router.POST("/create-work", controller.CreateWork)
 	router.POST("/assign-worker", controller.CheckCurrentWorker, controller.AssignWorker)
 	// router.POST("/worker", controller.RegisterWorker)
 

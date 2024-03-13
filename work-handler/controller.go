@@ -19,7 +19,7 @@ type Controller struct {
 // @Produce      json
 // @Param        CreateWorkDTO  body       CreateWorkDTO  true  "CreateWorkDTO JSON"
 // @Success      200 {object} WorkDTO
-// @Router       /work [post]
+// @Router       /create-work [post]
 func (controller *Controller) CreateWork(c *gin.Context) {
 	var createWorkDTO CreateWorkDTO
 	if err := c.BindJSON(&createWorkDTO); err != nil {

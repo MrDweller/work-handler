@@ -48,7 +48,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/work": {
+        "/create-work": {
             "post": {
                 "description": "Create a new work task",
                 "produces": [
