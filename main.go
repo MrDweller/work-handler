@@ -35,6 +35,13 @@ func main() {
 	if err != nil {
 		log.Panic(err)
 	}
+
+	domainAddress := os.Getenv("DOMAIN_ADDRESS")
+	domainPort, err := strconv.Atoi(os.Getenv("DOMAIN_PORT"))
+	if err != nil {
+		log.Panic(err)
+	}
+
 	systemName := os.Getenv("SYSTEM_NAME")
 
 	serviceRegistryAddress := os.Getenv("SERVICE_REGISTRY_ADDRESS")
@@ -43,7 +50,7 @@ func main() {
 		log.Panic(err)
 	}
 
-	workHandler, err := workhandler.New(address, port, systemName, serviceRegistryAddress, serviceRegistryPort, []serviceModels.ServiceDefinition{
+	workHandler, err := workhandler.New(address, port, domainAddress, domainPort, systemName, serviceRegistryAddress, serviceRegistryPort, []serviceModels.ServiceDefinition{
 		{
 			ServiceDefinition: "create-work",
 			ServiceUri:        "/create-work",

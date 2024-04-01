@@ -20,10 +20,10 @@ type WorkHandler struct {
 	Service                   Service
 }
 
-func New(address string, port int, systemName string, serviceRegistryAddress string, serviceRegistryPort int, services []models.ServiceDefinition) (*WorkHandler, error) {
+func New(address string, port int, domainAddress string, domainPort int, systemName string, serviceRegistryAddress string, serviceRegistryPort int, services []models.ServiceDefinition) (*WorkHandler, error) {
 	system := models.SystemDefinition{
-		Address:            address,
-		Port:               port,
+		Address:            domainAddress,
+		Port:               domainPort,
 		SystemName:         systemName,
 		AuthenticationInfo: "",
 	}
