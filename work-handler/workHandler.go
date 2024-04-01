@@ -15,6 +15,8 @@ import (
 
 type WorkHandler struct {
 	models.SystemDefinition
+	SystemAddress             string
+	SystemPort                int
 	ServiceRegistryConnection serviceregistry.ServiceRegistryConnection
 	Services                  []models.ServiceDefinition
 	Service                   Service
@@ -46,6 +48,8 @@ func New(address string, port int, domainAddress string, domainPort int, systemN
 
 	return &WorkHandler{
 		SystemDefinition:          system,
+		SystemAddress:             address,
+		SystemPort:                port,
 		ServiceRegistryConnection: serviceRegistryConnection,
 		Services:                  services,
 		Service:                   &ServiceImplementation{},
@@ -55,7 +59,7 @@ func New(address string, port int, domainAddress string, domainPort int, systemN
 func (w *WorkHandler) Run() error {
 	router := gin.Default()
 
-	url := fmt.Sprintf("%s:%d", w.Address, w.Port)
+	url := fmt.Sprintf("%s:%d", w.SystemAddress, w.SystemPort)
 
 	router.GET("/docs/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
