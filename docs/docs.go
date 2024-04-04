@@ -95,6 +95,9 @@ const docTemplate = `{
         "workhandler.CreateWorkDTO": {
             "type": "object",
             "properties": {
+                "address": {
+                    "type": "string"
+                },
                 "eventType": {
                     "type": "string"
                 },
@@ -106,10 +109,16 @@ const docTemplate = `{
         "workhandler.WorkDTO": {
             "type": "object",
             "properties": {
+                "address": {
+                    "type": "string"
+                },
                 "eventType": {
                     "type": "string"
                 },
                 "productId": {
+                    "type": "string"
+                },
+                "startTime": {
                     "type": "string"
                 },
                 "workId": {

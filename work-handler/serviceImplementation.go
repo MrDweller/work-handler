@@ -2,6 +2,7 @@ package workhandler
 
 import (
 	"context"
+	"time"
 
 	"github.com/MrDweller/work-handler/database"
 	"github.com/google/uuid"
@@ -17,6 +18,9 @@ func (s *ServiceImplementation) CreateWork(createWorkDTO *CreateWorkDTO) (*WorkD
 
 		ProductId: createWorkDTO.ProductId,
 		EventType: createWorkDTO.EventType,
+
+		Address:   createWorkDTO.Address,
+		StartTime: time.Now(),
 
 		IsAssigned:       false,
 		AssignedWorkerId: "",

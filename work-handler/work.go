@@ -1,10 +1,15 @@
 package workhandler
 
+import "time"
+
 type Work struct {
 	WorkId string `json:"workId"`
 
 	ProductId string `json:"productId"`
 	EventType string `json:"eventType"`
+
+	Address   string    `json:"address"`
+	StartTime time.Time `json:"startTime"`
 
 	IsAssigned       bool   `json:"isAssigned"`
 	AssignedWorkerId string `json:"assignedWorkerId"`
@@ -13,6 +18,7 @@ type Work struct {
 type CreateWorkDTO struct {
 	ProductId string `json:"productId"`
 	EventType string `json:"eventType"`
+	Address   string `json:"address"`
 }
 
 type WorkDTO struct {
@@ -20,6 +26,9 @@ type WorkDTO struct {
 
 	ProductId string `json:"productId"`
 	EventType string `json:"eventType"`
+
+	Address   string    `json:"address"`
+	StartTime time.Time `json:"startTime"`
 }
 
 func (work *Work) MapToWorkDTO() *WorkDTO {
@@ -27,6 +36,8 @@ func (work *Work) MapToWorkDTO() *WorkDTO {
 		WorkId:    work.WorkId,
 		ProductId: work.ProductId,
 		EventType: work.EventType,
+		Address:   work.Address,
+		StartTime: work.StartTime,
 	}
 }
 
