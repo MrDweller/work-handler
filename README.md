@@ -8,6 +8,9 @@ Create an `.env` file, and enter the following.
 ADDRESS=<address>
 PORT=<port>
 
+DOMAIN_ADDRESS=<address that will be registered to the service registry>
+DOMAIN_PORT=<port that will be registered to the service registry>>
+
 SYSTEM_NAME=<system name>
 
 MONGO_DB_CONNECTION_STRING=<uri to connect to a mongoDB instance>
